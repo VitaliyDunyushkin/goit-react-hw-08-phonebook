@@ -1,0 +1,22 @@
+.userMenu {
+    display: flex;
+    gap: 30px
+    
+}
+
+.userMenu_Btn {
+    display: block;
+        padding: 0.5rem;
+        margin-top: 1rem;
+        font-size: 1rem;
+        border-radius: 5%;
+        border: none;
+        background-color: rosybrown;
+        cursor: pointer;
+    
+        &:hover,
+        :focus {
+            background-color: cadetblue;
+            color: aliceblue;
+        }
+}
