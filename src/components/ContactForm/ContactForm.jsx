@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { selectContacts } from 'redux/selectors';
-import { addContact } from 'redux/operations';
+import { contactsSelectors } from 'redux/contacts';
+import { contactsOperations } from 'redux/contacts';
 import css from './contactForm.module.css';
 
 export default function ContactForm() {
   const [friend, setFriend] = useState('');
   const [number, setNumber] = useState('');
   const dispatch = useDispatch();
-  const prevContacts = useSelector(selectContacts);
+  const prevContacts = useSelector(contactsSelectors.selectContacts);
 
-  const contact = { name: friend, phone: number };
+  const contact = { name: friend, number: number };
 
   const handleChange = ({ target: { name, value } }) => {
     if (name === 'friend') {
@@ -34,7 +34,7 @@ export default function ContactForm() {
     if (prevContacts.find(prevContact => prevContact.name === contact.name)) {
       alert(message);
     } else {
-      dispatch(addContact(contact));
+      dispatch(contactsOperations.addContact(contact));
     }
 
     reset();

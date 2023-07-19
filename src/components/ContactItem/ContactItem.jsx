@@ -1,8 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { deleteContact } from 'redux/operations';
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 
+import { contactsOperations } from 'redux/contacts';
 import css from './contactItem.module.css';
 
 export default function ContactItem({ id, name, number }) {
@@ -14,7 +14,7 @@ export default function ContactItem({ id, name, number }) {
       <button
         className={css.deleteBtn}
         type="button"
-        onClick={() => dispatch(deleteContact(id))}
+        onClick={() => dispatch(contactsOperations.deleteContact(id))}
       >
         Delete
       </button>
