@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+
 // import { useDispatch, useSelector } from 'react-redux';
 
 // import ContactForm from './ContactForm';
@@ -7,6 +9,8 @@ import React from 'react';
 import UserMenu from './UseMenu';
 
 import RegisterPage from 'pages/RegisterPage';
+import LoginPage from 'pages/LoginPage';
+import { authOperations } from 'redux/auth';
 
 // import { fetchContacts } from 'redux/operations';
 // import { selectError, selectIsLoading } from 'redux/selectors';
@@ -20,11 +24,19 @@ export function App() {
   //   dispatch(fetchContacts());
   // }, [dispatch]);
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
+
   return (
     <>
       <UserMenu />
       <hr />
       <RegisterPage />
+      <hr />
+      <LoginPage />
 
       {/* <h1>Phonebook</h1>
       <ContactForm />
