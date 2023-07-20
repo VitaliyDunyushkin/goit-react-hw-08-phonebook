@@ -8,8 +8,8 @@ import { contactsOperations } from 'redux/contacts';
 
 import AppBar from './components/AppBar';
 import Container from './components/Container';
-import { PrivateRoute } from 'components/PrivateRoute';
-import { PublicRoute } from 'components/PublicRoute';
+import { PrivateRoute } from './components/PrivateRoute';
+import { PublicRoute } from './components/PublicRoute';
 
 const HomePage = lazy(() => import('pages/HomePage'));
 const Phonebook = lazy(() => import('pages/PhonebookPage'));
