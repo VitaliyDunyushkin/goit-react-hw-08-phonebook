@@ -1,5 +1,7 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { contactsOperations } from 'redux/contacts';
 
 import ContactForm from '../components/ContactForm';
 import ContactList from '../components/ContactList';
@@ -10,6 +12,12 @@ import { contactsSelectors } from 'redux/contacts';
 export default function Phonebook() {
   const isLoading = useSelector(contactsSelectors.selectIsLoading);
   const error = useSelector(contactsSelectors.selectError);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(contactsOperations.fetchContacts());
+  }, [dispatch]);
 
   return (
     <>

@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { authOperations } from 'redux/auth';
-import { contactsOperations } from 'redux/contacts';
 
 import AppBar from './components/AppBar';
 import Container from './components/Container';
@@ -21,7 +20,6 @@ export function App() {
 
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
-    dispatch(contactsOperations.fetchContacts());
   }, [dispatch]);
 
   return (
